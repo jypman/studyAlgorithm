@@ -11,7 +11,10 @@ function solution(answers) {
     const student1 = [1,2,3,4,5]
     const student2 = [2,1,2,3,2,4,2,5]
     const student3 = [3,3,1,1,2,2,4,4,5,5]
-    let [answer, student1CorrectAnswer, student2CorrectAnswer, student3CorrectAnswer] = [[],[],[],[]]
+    let answer = [],
+        student1CorrectAnswer = [],
+        student2CorrectAnswer = [],
+        student3CorrectAnswer = []
     for (let i = 0; i < answers.length; i++) {
         if(answers[i] === student1[i % 5]){
             student1CorrectAnswer.push(answers[i])
