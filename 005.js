@@ -8,4 +8,4 @@ function solution(a, b) {
     return getDay[date];
 }
 
-console.log(solution(a, b))
+console.log('2016년 a월 b일은 무슨 요일?:', solution(a, b))
