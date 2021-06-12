@@ -10,7 +10,7 @@ const b = 7
 //     return answer;
 // }
 
-// '가우스 합' 공식
+// '가우스 등차수열의 합' 공식
 function solution(a, b) {
     return (a+b)*(Math.abs(b-a)+1)/2;
 }
