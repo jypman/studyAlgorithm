@@ -2,13 +2,17 @@
 const a = 3
 const b = 7
 
+// function solution(a, b) {
+//     let answer = 0;
+//     for (let i = Math.min(a,b); i <= Math.max(a,b); i++) {
+//         answer += i
+//     }
+//     return answer;
+// }
+
+// '가우스 합' 공식
 function solution(a, b) {
-    if(a === b) return a
-    let answer = 0;
-    for (let i = a < b ? a : b; a > b ? i <= a : i <= b; i++) {
-        answer += i
-    }
-    return answer;
+    return (a+b)*(Math.abs(b-a)+1)/2;
 }
 
 console.log('두 장수 사이의 합 :',solution(a ,b))
