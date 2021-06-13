@@ -34,4 +34,4 @@ function solution(answers) {
     return answer;
 }
 
-console.log(solution(answers))
+console.log('모의고사를 찍어서 제일 많이 맞힌 학생은?',solution(answers))
