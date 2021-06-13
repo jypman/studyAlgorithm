@@ -18,4 +18,4 @@ function solution(n, lost, reserve) {
     return total - nonAttendance.length;
 }
 
-console.log(solution(n, lost, reserve))
+console.log('체육 수업을 들을 수 있는 최대 학생 수는?',solution(n, lost, reserve))
