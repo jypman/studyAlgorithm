@@ -18,4 +18,4 @@ function solution(participant, completion) {
     }
 }
 
-console.log('완주하지 못한 선수 :', solution(participant, completion))
+console.log('완주하지 못한 선수의 이름은? :', solution(participant, completion))
