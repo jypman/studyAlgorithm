@@ -10,4 +10,4 @@ function solution(array, commands) {
             return sort_arr[select - 1];
         });
 }
-console.log(solution(array, commands))
+console.log('K번째의 수는?',solution(array, commands))
