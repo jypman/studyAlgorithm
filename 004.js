@@ -1,4 +1,4 @@
-// 완주하지 못한 선수 - 해시
+// 완주하지 못한 선수 - 해시 (복습 필수)
 const participant = ['a', 'a', 'b', 'b', 'c']
 const completion = ['a', 'b', 'b', 'c']
 
