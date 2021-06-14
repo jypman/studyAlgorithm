@@ -1,11 +1,5 @@
-// 모의고사 - 완전탐색
-let answers = []
-function generateRandom(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
-}
-for (let i = 0; i < generateRandom(1,10000); i++) {
-    answers.push(generateRandom(1,5))
-}
+// 모의고사 - 완전탐색(복습 필수)
+let answers = [1,2,3,4,5]
 
 function solution(answers) {
     const student1 = [1,2,3,4,5]
