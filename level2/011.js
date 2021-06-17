@@ -7,7 +7,8 @@ function solution(s) {
     for (let elem of consecutiveBlanks) {
         if(isNaN(parseInt(elem[0])))
             result.push(elem.replace(/[a-z]/, c => c.toUpperCase()))
-        else result.push(elem)
+        else
+            result.push(elem)
     }
     return result.join(' ')
 }
