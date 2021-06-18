@@ -23,5 +23,5 @@ function MinCoinChange(coins) {
     }
 }
 
-const minCoinChange = new MinCoinChange([1, 5, 10, 25])
-console.log(minCoinChange.makeChange(36))
+const minCoinChange = new MinCoinChange([1, 3, 4])
+console.log(minCoinChange.makeChange(6))
