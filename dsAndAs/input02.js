@@ -10,8 +10,14 @@ const rl = readline.createInterface({
 });
 
 rl.on('line', (input) => {
-    console.log(`received: ${input}`);
+    Input(input)
+    rl.close()
 })
 .on('close', () => {
     console.log('end');
+    process.exit()
 });
+
+function Input(input) {
+    console.log(`received: ${input}`);
+}
