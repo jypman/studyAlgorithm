@@ -1,4 +1,4 @@
-function linkedList (){
+export function LinkedList (){
     let length = 0;
     let head = null;
     const Node = function (element) {
@@ -96,7 +96,7 @@ function linkedList (){
         return head;
     }
 }
-const list = new linkedList();
+const list = new LinkedList();
 list.append(15);
 list.append(11);
 list.append(10);
