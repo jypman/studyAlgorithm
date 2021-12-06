@@ -6,6 +6,7 @@
 // 따라서 두번 째 인자 값에 'utf-8'을 넣거나 입력값에 .toString()을 추가로 입력하여 문자열로 변환해준다.
 // 참고로 fs.readFileSync의 첫번째 인자에 '/dev/stdin'이 들어가는 경우가 있다.
 // 이것은 숫자 0과 같은 의미이다.
+
 const fs = require('fs');
 let input = fs.readFileSync(0,"utf-8").split(' ');
 const a = parseInt(input[0]);
