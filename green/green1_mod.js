@@ -2,9 +2,9 @@ function solution(paper) {
     const sortArray = [...paper].sort((a, b) => {return b-a})
     let resultArray = []
     for (let index in sortArray) {
-        const precedenceEA = parseInt(index) + 1
+        const precedenceEA = sortArray.length - index
         let precedenceQuotation = 0
-        for (let i = 0; i < precedenceEA; i++) {
+        for (let i = precedenceEA - 1; i >= 0; i--) {
             precedenceQuotation += sortArray[i]
         }
         resultArray.push({
@@ -13,7 +13,7 @@ function solution(paper) {
         })
     }
     console.log(resultArray)
-    const answer = resultArray.reverse().find(item => {
+    const answer = resultArray.find(item => {
         return item.correctCondition
     }).g
     return answer;
