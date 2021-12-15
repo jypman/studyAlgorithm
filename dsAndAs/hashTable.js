@@ -15,29 +15,16 @@ function hashCode(key) {
 
 function HashTable() {
     let table = [];
+    // 어떤 값이 어떤 키에 대응하는지 알기 위함이다.
     const ValuePair = function (key, value) {
         this.key = key;
         this.value = value;
-        this.toString = function () {
-            return `[${this.key} - ${this.value}]`
-        }
     };
+
     this.chainingPut = function (key, value) {
         const position = hashCode(key);
         if(table[position] === undefined) table[position] = new LinkedList();
         table[position].append(new ValuePair(key, value));
-    };
-    this.linearSearchPut = function (key, value) {
-        let position = hashCode(key);
-        if(table[position] === undefined){
-            table[position] = new ValuePair(key, value);
-        } else {
-            let index = ++position;
-            while (table[index] !== undefined){
-                index++;
-            }
-            table[index] = new ValuePair(key, value);
-        }
     };
     this.chainingGet = function (key) {
         const position = hashCode(key);
@@ -52,18 +39,6 @@ function HashTable() {
         }
         return undefined;
     };
-    this.linearSearchGet = function (key) {
-        let position = hashCode(key);
-        if(table[position] !== undefined){
-            if(table[position].key === key) return table[position].value;
-            else {
-                let index = ++position;
-                while (table[index] === undefined || table[index].key !== key) index++;
-                if(table[index].key === key) return table[index].value;
-            }
-        }
-        return undefined;
-    }
     this.chainingRemove = function (key) {
         const position = hashCode(key);
         if(table[position] !== undefined){
@@ -84,6 +59,32 @@ function HashTable() {
         }
         return false;
     };
+    this.linearSearchPut = function (key, value) {
+        let position = hashCode(key);
+        if(table[position] === undefined){
+            table[position] = new ValuePair(key, value);
+        } else {
+            let index = ++position;
+            // 이미 해당 인덱스에 원소가 있으면 다음 인덱스를 찾도록 index를 1씩 증가시킨다.
+            while (table[index] !== undefined){
+                index++;
+            }
+            table[index] = new ValuePair(key, value);
+        }
+    };
+    this.linearSearchGet = function (key) {
+        let position = hashCode(key);
+        if(table[position] !== undefined){
+            if(table[position].key === key) return table[position].value;
+            else {
+                let index = ++position;
+                // 해당 인덱스에 원소가 없거나 해당 인덱스에 다른 원소가 있을 경우 다음 인덱스를 찾도록 index를 1씩 증가시킨다.
+                while (table[index] === undefined || table[index].key !== key) index++;
+                if(table[index].key === key) return table[index].value;
+            }
+        }
+        return undefined;
+    }
     this.linearSearchRemove = function (key) {
         let position = hashCode(key);
         if(table[position] !== undefined){
