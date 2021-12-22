@@ -19,7 +19,32 @@ function BinarySearchTree() {
     this.postOrderTraverse = function (callback) {
         postOrderTraverseNode(root, callback)
     }
-
+    // 노드 최솟값
+    this.min = function () {
+        if(root !== null){
+            let node = {...root}
+            while (node && node.left !== null) node = node.left
+            return node.key;
+        }
+        return null;
+    }
+    // 노드 최댓값
+    this.max = function () {
+        if(root !== null){
+            let node = {...root}
+            while (node && node.right !== null) node = node.right
+            return node.key;
+        }
+        return null;
+    }
+    // 특정 값 찾기
+    this.search = function (key) {
+        return searchNode(root, key)
+    }
+    // 노드 삭제
+    this.remove = function (key) {
+        root = removeNode(root, key)
+    }
     function Node(key) {
         this.key = key;
         this.left = null;
@@ -60,6 +85,66 @@ function BinarySearchTree() {
             callback(node.key)
         }
     }
+    function searchNode(node, key) {
+        if(node === null){
+            return false
+        }
+        if(key < node.key){
+            return searchNode(node.left, key)
+        } else if(key > node.key){
+            return searchNode(node.right, key)
+        } else {
+            return true
+        }
+    }
+    function removeNode(node, key) {
+        if(node === null){
+            return null
+        }
+
+        // 찾는 값이 방문한 노드의 값보다 적으면 죄측 아니면 우측으로 이동
+        if(key < node.key){
+            node.left = removeNode(node.left, key)
+            return node
+        } else if(key > node.key){
+            node.right = removeNode(node.right, key)
+            return node
+        }
+
+        // 찾는 값을 갖는 노드에 방문했을 때 리프 노드인 경우
+        // 리프노드를 제거해준다.
+        if(node.left === null && node.right === null){
+            node = null
+            return node;
+        }
+
+        // 찾는 값을 갖는 노드에 방문했을 때 한쪽에만 자식 노드가 있는 경우
+        // 조상 노드가 자손 노드를 가리키면 된다.
+        if(node.left === null){
+            node = node.right
+            return node
+        }
+        else if(node.right === null){
+            node = node.left
+            return node
+        }
+
+        // 찾는 값을 갖는 노드에 방문했을 때 양쪽 모두 자식 노드가 있는 경우
+        // 노드 기준 오른쪽 서브트리에서 최솟값을 현재 노드의 값으로 바꿔준다.
+        // 해당 서브트리에서 최솟값을 갖는 노드를 삭제해준다.
+        node.key = findMinNode(node.right).key
+        node.right = removeNode(node.right, node.key)
+        return node
+    }
+    function findMinNode(NODE) {
+        // 최솟값을 갖는 노드 반환
+        if(NODE !== null){
+            let node = {...NODE}
+            while (node && node.left !== null) node = node.left
+            return node;
+        }
+        return null;
+    }
 }
 
 function printNode(value) {
@@ -90,3 +175,13 @@ console.log('* 전위순회')
 tree.preOrderTraverse(printNode)
 console.log('* 후위순회')
 tree.postOrderTraverse(printNode)
+
+console.log('노드 최솟값 :', tree.min())
+console.log('노드 최댓값 :', tree.max())
+
+console.log('6을 찾았는가? :', tree.search(6))
+console.log('99를 찾았는가? :', tree.search(99))
+
+tree.remove(15)
+console.log('* 노드 삭제 후 중위순회')
+tree.inOrderTraverse(printNode)
