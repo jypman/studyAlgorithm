@@ -45,7 +45,22 @@ function Graph() {
             if(callback) callback(u)
         }
     }
+    this.dfs = function (callback) {
+        let color = initializeColor()
+        vertices.forEach(vertex => {
+            if(color[vertex] === 'white') dfsVisit(vertex, callback) // 4
+        })
 
+        function dfsVisit(u, callback) {
+            color[u] = 'gray'
+            if(callback) callback(u)
+            const neighbors = adjList.get(u)
+            neighbors.forEach(neighbor => {
+                if(color[neighbor] === 'white') dfsVisit(neighbor, callback)
+            })
+            color[u] = 'black'
+        }
+    }
     function initializeColor() {
         let color = {}
         vertices.forEach(vertex => {
@@ -80,4 +95,8 @@ graph.addEdge('E', 'I')
 
 console.log(graph.toString())
 
+console.log('---bfs---')
 graph.bfs(myVertices[0], printNode)
+
+console.log('---dfs---')
+graph.dfs(printNode)
