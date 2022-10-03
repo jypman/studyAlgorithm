@@ -8,8 +8,5 @@
 // 이것은 숫자 0과 같은 의미이다.
 
 const fs = require('fs');
-let input = fs.readFileSync(0,"utf-8").split(' ');
-const a = parseInt(input[0]);
-const b = parseInt(input[1]);
+let input = fs.readFileSync(0,"utf-8");
 console.log(input);
-console.log(a+b);
