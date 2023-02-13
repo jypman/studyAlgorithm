@@ -7,37 +7,6 @@ function ArrayList() {
     array[nextIdx] = aux;
   };
 
-  const merge = function (left, right) {
-    const result = [];
-    let il = 0;
-    let ir = 0;
-
-    while (il < left.length && ir < right.length) {
-      if (left[il] < right[ir]) result.push(left[il++]);
-      else result.push(right[ir++]);
-    }
-
-    while (il < left.length) {
-      result.push(left[il++]);
-    }
-
-    while (ir < right.length) {
-      result.push(right[ir++]);
-    }
-
-    return result;
-  };
-
-  const mergeSortRec = function (array) {
-    const length = array.length;
-    if (length === 1) return array;
-
-    const mid = Math.floor(length / 2);
-    const left = array.slice(0, mid);
-    const right = array.slice(mid, length);
-    return merge(mergeSortRec(left), mergeSortRec(right));
-  };
-
   this.insert = function (item) {
     array.push(item);
   };
@@ -84,6 +53,37 @@ function ArrayList() {
   };
 
   this.mergeSort = function () {
+    const merge = function (left, right) {
+      const result = [];
+      let il = 0;
+      let ir = 0;
+
+      while (il < left.length && ir < right.length) {
+        if (left[il] < right[ir]) result.push(left[il++]);
+        else result.push(right[ir++]);
+      }
+
+      while (il < left.length) {
+        result.push(left[il++]);
+      }
+
+      while (ir < right.length) {
+        result.push(right[ir++]);
+      }
+
+      return result;
+    };
+
+    const mergeSortRec = function (array) {
+      const length = array.length;
+      if (length === 1) return array;
+
+      const mid = Math.floor(length / 2);
+      const left = array.slice(0, mid);
+      const right = array.slice(mid, length);
+      return merge(mergeSortRec(left), mergeSortRec(right));
+    };
+
     array = mergeSortRec(array);
   };
 }
