@@ -127,6 +127,9 @@ function Graph() {
       color[u] = "black";
     }
   };
+  this.DFS = function (callback) {
+    //
+  };
   function initializeColor() {
     let color = {};
     vertices.forEach((vertex) => {
@@ -158,6 +161,9 @@ graph.addEdge("C", "G");
 graph.addEdge("D", "G");
 graph.addEdge("D", "H");
 graph.addEdge("E", "I");
+graph.addEdge("E", "J");
+graph.addEdge("E", "K");
+graph.addEdge("E", "L");
 
 console.log(graph.toString());
 
