@@ -1,10 +1,12 @@
+export function Node(element) {
+  this.element = element;
+  this.next = null;
+}
+
 export function LinkedList() {
   let length = 0;
   let head = null;
-  const Node = function (element) {
-    this.element = element;
-    this.next = null;
-  };
+
   this.append = function (element) {
     const node = new Node(element);
     let current;
