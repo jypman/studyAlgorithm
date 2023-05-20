@@ -6,7 +6,7 @@ export function Node(element) {
 export function LinkedList() {
   let length = 0;
   let head = null;
-
+  // 리스트의 맨끝에 새로운 노드 추가
   this.append = function (element) {
     const node = new Node(element);
     let current;
@@ -19,7 +19,7 @@ export function LinkedList() {
     }
     length++;
   };
-  // 특정 위치에 있는 원소를 삭제
+  // 특정 위치에 있는 노드 삭제
   this.removeAt = function (position) {
     if (position > -1 && position < length) {
       let current = head,
@@ -40,6 +40,7 @@ export function LinkedList() {
       return null;
     }
   };
+  // 특정 위치에 노드 추가
   this.insert = function (position, element) {
     if (-1 < position && position <= length) {
       const node = new Node(element);
@@ -63,15 +64,15 @@ export function LinkedList() {
       return false;
     }
   };
-  // 노드에 추가된 숫자 원소들이 문자열로 바뀌어 문자열끼리 합친 후 출력
+  // 각 노드에 저장된 숫자 데이터들을 문자열로 출력
   this.toString = function () {
     let current = head,
-      string = "";
+      resultArray = [];
     while (current) {
-      string += current.element;
+      resultArray.push(current.element);
       current = current.next;
     }
-    return string;
+    return resultArray.join();
   };
   this.indexOf = function (element) {
     let current = head,
@@ -83,7 +84,7 @@ export function LinkedList() {
     }
     return -1;
   };
-  // 특정 원소의 값을 삭제
+  // 특정 값을 갖는 노드 삭제
   this.remove = function (element) {
     const index = this.indexOf(element);
     return this.removeAt(index);
