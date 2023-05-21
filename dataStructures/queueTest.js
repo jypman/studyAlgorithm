@@ -6,7 +6,7 @@ console.log("isEmpty :", queue.isEmpty());
 
 queue.enqueue("jyp");
 queue.enqueue("fgh");
-
+console.log("size :", queue.size());
 console.log("isEmpty :", queue.isEmpty());
 
 console.log("front 요소 :", queue.front());
