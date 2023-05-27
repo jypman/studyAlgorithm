@@ -4,7 +4,7 @@ function solution(numbers) {
   let combinedNumbers = [];
 
   for (let i = 1; i <= numbers.length; i++) {
-    combinedNumbers.push(...permutation(numbers.split(""), i));
+    combinedNumbers.push(...permutation([...numbers], i));
   }
 
   const reduceRedundancy = [
