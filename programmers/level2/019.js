@@ -2,7 +2,7 @@
 
 function solution(n, wires) {
   const graph = Array.from({ length: n + 1 }, () => []);
-  let result = Infinity;
+  let cases = [];
 
   // 그래프 초기화
   wires.forEach(([src, dest]) => {
@@ -15,10 +15,10 @@ function solution(n, wires) {
     const len1 = breakWire(graph, src, dest);
     const len2 = n - len1;
 
-    result = Math.min(result, Math.abs(len1 - len2));
+    cases.push(Math.abs(len1 - len2));
   });
 
-  return result;
+  return Math.min(...cases);
 }
 
 function breakWire(graph, src, dest) {
