@@ -1,3 +1,4 @@
+// 조이스틱
 function solution(name) {
   let alpha = [...name];
   const A = "A".charCodeAt(0);
