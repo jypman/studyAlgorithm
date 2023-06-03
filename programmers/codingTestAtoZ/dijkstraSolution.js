@@ -54,7 +54,7 @@ class MinHeap {
   }
 }
 
-function dijkstra(road, N) {
+function dijkstraSolution(road, N) {
   const heap = new MinHeap();
 
   heap.push({ node: 1, cost: 0 });
@@ -83,7 +83,7 @@ function dijkstra(road, N) {
 }
 
 function solution(N, road, K) {
-  return dijkstra(road, N).filter((elem) => elem <= K).length;
+  return dijkstraSolution(road, N).filter((elem) => elem <= K).length;
 }
 
 console.log(
