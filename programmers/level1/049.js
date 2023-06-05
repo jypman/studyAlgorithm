@@ -1,28 +1,14 @@
 // 옹알이
 
 function solution(babbling) {
-  let result = 0;
-  const myBabbling = ["aya", "ye", "woo", "ma"];
+  const wrongRegexp = /(aya|ye|woo|ma)\1+/;
+  const correctRegexp = /^(aya|ye|woo|ma)+$/;
 
-  babbling.forEach((word) => {
-    if (
-      myBabbling.some(
-        (elem) => word.length > word.replaceAll(`${elem}${elem}`, "").length
-      )
-    )
-      return;
-    if (myBabbling.includes(word)) return result++;
-
-    let temp = word;
-
-    myBabbling.forEach((myWord) => {
-      temp = temp.replaceAll(myWord, " ");
-    });
-
-    if (temp.replace(/\s/g, "").length === 0) result++;
-  });
-
-  return result;
+  return babbling.reduce(
+    (ans, word) =>
+      !wrongRegexp.test(word) && correctRegexp.test(word) ? ++ans : ans,
+    0
+  );
 }
 
 console.log(solution(["aya", "yee", "u", "maa"])); // 1
