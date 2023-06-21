@@ -1,3 +1,4 @@
+// 구명보트
 function solution(people, limit) {
   const sortPeople = [...people].sort((a, b) => a - b);
 
