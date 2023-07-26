@@ -2,17 +2,14 @@
 
 function solution(numbers) {
   const answer = Array.from({ length: numbers.length }, () => -1);
-  const numbersIndexes = [];
+  const stack = [];
 
   numbers.forEach((number, index) => {
-    while (
-      numbersIndexes.length &&
-      numbers[numbersIndexes[numbersIndexes.length - 1]] < number
-    ) {
-      answer[numbersIndexes.pop()] = number;
+    while (stack.length && numbers[stack[stack.length - 1]] < number) {
+      answer[stack.pop()] = number;
     }
 
-    numbersIndexes.push(index);
+    stack.push(index);
   });
 
   return answer;

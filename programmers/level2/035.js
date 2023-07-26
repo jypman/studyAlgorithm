@@ -2,10 +2,10 @@
 
 function solution(x, y, n) {
   let answer = -1;
-  const stack = [{ number: y, tried: 0 }];
+  const queue = [{ number: y, tried: 0 }];
 
-  while (stack.length) {
-    const { number, tried } = stack.shift();
+  while (queue.length) {
+    const { number, tried } = queue.shift();
 
     if (number === x) {
       answer = tried;
@@ -13,13 +13,13 @@ function solution(x, y, n) {
     }
 
     if (number % 2 === 0) {
-      stack.push({ number: number / 2, tried: tried + 1 });
+      queue.push({ number: number / 2, tried: tried + 1 });
     }
     if (number % 3 === 0) {
-      stack.push({ number: number / 3, tried: tried + 1 });
+      queue.push({ number: number / 3, tried: tried + 1 });
     }
     if (number - n >= x) {
-      stack.push({ number: number - n, tried: tried + 1 });
+      queue.push({ number: number - n, tried: tried + 1 });
     }
   }
 
