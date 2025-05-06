@@ -1,3 +1,7 @@
+/**
+ * @see https://www.acmicpc.net/problem/2839
+ * */
+
 const solution = (total) => {
   const five = 5;
   const three = 3;

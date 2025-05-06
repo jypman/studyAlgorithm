@@ -1,3 +1,7 @@
+/**
+ * @see https://www.acmicpc.net/problem/1946
+ * */
+
 function solution(persons) {
   const sortedPersons = persons.sort((a, b) => b[0] - a[0]);
 

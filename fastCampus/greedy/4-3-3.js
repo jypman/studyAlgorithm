@@ -1,3 +1,7 @@
+/**
+ * @see https://www.acmicpc.net/problem/1789
+ * */
+
 function solution(total) {
   let TOTAL = total;
   let startInt = 1;

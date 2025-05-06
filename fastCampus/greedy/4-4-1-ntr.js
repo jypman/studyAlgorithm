@@ -1,4 +1,6 @@
-// 문제 : https://www.acmicpc.net/problem/13305
+/**
+ * @see https://www.acmicpc.net/problem/13305
+ * */
 
 function solution(arr1, arr2) {
   let minVal = 0;

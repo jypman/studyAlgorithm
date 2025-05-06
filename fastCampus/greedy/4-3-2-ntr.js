@@ -1,3 +1,7 @@
+/**
+ * @see https://www.acmicpc.net/problem/16953
+ * */
+
 function solution(a, b) {
   let count = 1;
   let targetB = b;
